@@ -1,3 +1,26 @@
 Regions and Availability Zones
 ------------------------------
     https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.html
+    
+
+Create EC2 Instance:
+====================
+        resource "aws_instance" "secondec2" {
+          ami = "ami-007dbcbce3118978b"
+          instance_type = "t2.micro"
+          tags = {
+            Name = "My First EC2 instance"
+          }
+        }
+        
+Create S3 Bucket:
+------------------
+resource "aws_s3_bucket" "shareefpractice12345" {
+  bucket = "shareefpractice12345"
+  acl = "private"
+
+  tags = {
+    Name = "Shareefmys3Bucket"
+    Environment = "Dev"
+  }
+}
